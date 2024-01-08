@@ -20,7 +20,7 @@ The structure of implementing DP will follow as
 - AbstractFactory
 
 
-1) Singleton
+### 1) Singleton Pattern
 
 - Concepts
     - only one instance is created
@@ -71,3 +71,76 @@ The structure of implementing DP will follow as
   - Thread safe
   - Solves a well-defined problem
   - Don't confuse with Factory
+
+### 2) Builder Pattern
+ 
+- Concept
+  - Handles complex constructors: large no. of args
+  - Immutability
+  - Examples : StringBuilder, DocumentBuilder, Locale.Builder
+
+- Design
+  - creation of multiple constructors with each parameter variation is called telescoping constructor
+  - This pattern has flexibility over telescoping constructor
+  - The builder handles this telescoping constructor by handling through objects rather than parameters
+  - Builder is written in static inner class: returns instance of the object that is building
+  - Calls appropriate constructor
+  - Negates the need for exposed setters
+
+- Example :
+  - ```
+     StringBuilder builder = new StringBuilder();
+        builder.append("Example of Builder Pattern through String Builder");
+        builder.append("Appending more through string builder");
+        builder.append(40);
+        builder.append('s');
+
+        System.out.println(builder.toString());
+    ```
+
+- Pitfalls
+  - Immutable objects 
+  - Inner static class
+  - Complexity
+
+- Contrast
+  - Builder Vs Prototype
+
+  |           Builder            |                  Prototype                  |
+    |:----------------------------:|:-------------------------------------------:|
+  | Handles complex constructors |        Implemented around a clone         |
+  |    No Interface required     |     Avoids calling complex constructors     |
+  | Works well with legacy code  | Difficult to implement in legacy code bases |
+  
+
+- Summary
+  - Creative way to deal with complexity
+  - Easy to implement if done correctly
+  - Fewer drwabacks
+  - Inner class can be refactored in separate class
+
+### 3) Prototype
+  Used when the type of object to create is determined by prototypical instance which is cloned to produce a new instance
+  Often times prototype instance gets the unique instance of the same object
+
+- Concepts
+  - Avoids costly creation
+  - Avoid subclassing
+  - Only the first instance uses `New` keyword, after that the other objects are cloned
+  - Often utilizes interface
+  - Implemented with some kind of Registry, clone is created from this Registry
+  - Example: java.lang.Object#clone()
+
+
+- Design 
+  - Clone / Cloneable: used better if created an instance with `New` is expensive
+  - Although a copy, each instance is unique
+  - Often Costly construction not handled by client
+  - Can still utilize parameters for construction
+  - Shallow (Copies the immediate properties) Vs Deep (Copies any of its object references along with properties) copy
+- Example :
+  ```
+  
+  ```
+
+
