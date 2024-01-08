@@ -58,12 +58,13 @@ The structure of implementing DP will follow as
 
 - Contrast 
   - Singleton Vs Factory
-
+  
   | Singleton                                               | Factory                                                 |
   |:--------------------------------------------------------:|:-------------------------------------------------------:|
   | Returns same instance - 1 constructor method with no args | Returns various instances - Multiple Constructors       |
   | No Interface                                            | Interface driver                                        |
   | Difficult                                               | Adaptable to environment more easily                    |
+
 
 - Summary
   - Guarantee one instances
